@@ -12,7 +12,7 @@ export type ThemedComponent<Theme, Props extends { theme: Theme }> = React.Compo
 > & hoistNonReactStatics.NonReactStatics<typeof WrappedComponent>;
 
 export type ThemingType<Theme> = {
-  ThemeProvider: React.ComponentType<{ theme?: Theme }>;
+  ThemeProvider: React.ComponentType<React.PropsWithChildren<{ theme?: Theme }>>;
   withTheme: <Props extends { theme: Theme }, C>(
     WrappedComponent: React.ComponentType<Props> & C
   ) => ThemedComponent<Theme, Props>
